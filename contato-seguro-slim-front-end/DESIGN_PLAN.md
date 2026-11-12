@@ -13,8 +13,11 @@ Vou mexer só no `client/`. Backend não mexe.
 ### 1. Pessoas
 - Página nova no menu (`/people`)
 - CRUD igual o de Empresas: listar, cadastrar, editar, excluir
-- Campos: nome, CPF, e-mail, data de nascimento
-- CPF único → tratar erro 409
+- Campos:
+  - nome: obrigatório, 2 a 120 caracteres, sem espaços nas pontas
+  - CPF: obrigatório, 11 dígitos (MASKA), validar dígitos verificadores, salvar só números, ÚNICO (tratar erro 409)
+  - e-mail: obrigatório, formato válido, salvar em minúsculas
+  - data de nascimento: obrigatória, data real, idade mínima de 18 anos, no máximo 120 anos atrás, salvar como `YYYY-MM-DD`
 
 ### 2. Envolvidos nos Relatos
 - Botão "Envolvidos" na linha do relato
