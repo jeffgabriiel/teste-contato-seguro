@@ -1,11 +1,11 @@
-import { Empty,Table as AntdTable, type TableProps as AntdTableProps } from 'antd';
+import { Empty, Table as AntdTable, type TableProps as AntdTableProps } from 'antd';
 
-type Props<RecordType> = Omit<AntdTableProps<RecordType>, 'rowKey' | 'rootClassName' | 'pagination'>;
+type Props<RecordType> = Omit<AntdTableProps<RecordType>, 'rowKey' | 'rootClassName'>;
 
-export function Table<RecordType extends { id: number }>(props: Props<RecordType>) {
+export function Table<RecordType extends { id: number }>({ pagination, ...props }: Props<RecordType>) {
     const emptyText = (
         <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE} 
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
             description="Não há dados"
         />
     );
@@ -15,7 +15,13 @@ export function Table<RecordType extends { id: number }>(props: Props<RecordType
             {...props}
             rowKey={row => row.id}
             rootClassName="table-horizontal-scroll"
-            pagination={{ defaultPageSize: 5, hideOnSinglePage: true }}
+            pagination={pagination === false
+                ? false
+                : {
+                    pageSize: 5,
+                    hideOnSinglePage: true,
+                    ...pagination,
+                }}
             /** @see https://github.com/ant-design/ant-design/issues/7690#issuecomment-558846552 */
             locale={{ emptyText }}
         />

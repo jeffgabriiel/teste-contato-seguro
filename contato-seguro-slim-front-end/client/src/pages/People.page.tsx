@@ -69,6 +69,7 @@ export function People() {
                             columns={COLUMNS}
                             dataSource={people}
                             loading={isLoading}
+                            pagination={{ pageSize: 5 }}
                         />
                     </main>
 

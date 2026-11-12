@@ -22,7 +22,7 @@ Vou mexer só no `client/`. Backend não mexe.
 ### 2. Envolvidos nos Relatos
 - Botão "Envolvidos" na linha do relato
 - Modal separado (não misturar com editar relato)
-- Lista de vínculos + adicionar/remover
+- Lista de vínculos (paginado) + adicionar/remover
 - Tag Anônimo / Identificado no modal
 
 ## Como vou organizar o código
